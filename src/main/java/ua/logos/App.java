@@ -14,9 +14,10 @@ public class App
         EntityManager em = factory.createEntityManager();
         em.getTransaction().begin();
 
-//        Category category = new Category();
-//        category.setName("Mobile");
-//        em.persist(category);
+        Category category = new Category();
+        category.setName("Android dev");
+
+        em.persist(category);
 
 
         em.getTransaction().commit();
