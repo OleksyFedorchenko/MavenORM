@@ -6,6 +6,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
+import java.util.List;
 
 @Getter
 @Setter
@@ -31,4 +32,8 @@ public class Course extends BaseEntity {
     @ManyToOne
     @JoinColumn(name="teacher_id")
     private Teacher teacher;
+
+    @ManyToMany
+    @JoinTable(name = "course_student", joinColumns = @JoinColumn(name = "course_id"),inverseJoinColumns = @JoinColumn(name = "student_id"))
+    private List<Student> students;
 }
