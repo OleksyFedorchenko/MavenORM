@@ -5,6 +5,7 @@ import ua.logos.entity.Category;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
+import java.util.List;
 
 public class App
 {
@@ -14,11 +15,16 @@ public class App
         EntityManager em = factory.createEntityManager();
         em.getTransaction().begin();
 
-        Category category = new Category();
-        category.setName("Android dev");
-
-        em.persist(category);
-
+//        Category category = new Category();
+//        category.setName("IOS dev");
+//        em.persist(category);
+//
+//        category=new Category();
+//        category.setName("WEB");
+//        em.persist(category);
+        List<Category> categories =
+                em.createQuery("SELECT c FROM Category c",Category.class).getResultList();
+        categories.forEach(System.out::println);
 
         em.getTransaction().commit();
         em.close();
