@@ -4,10 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.List;
 
 @Getter
@@ -30,4 +27,8 @@ public class Teacher extends BaseEntity {
 
     @OneToMany(mappedBy = "teacher")
     private List<Course> courses;
+
+    @OneToOne(mappedBy = "teacher")
+    private TeacherDetails teacherDetails;
+
 }
