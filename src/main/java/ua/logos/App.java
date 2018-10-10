@@ -22,9 +22,12 @@ public class App
 //        category=new Category();
 //        category.setName("WEB");
 //        em.persist(category);
-        List<Category> categories =
-                em.createQuery("SELECT c FROM Category c",Category.class).getResultList();
-        categories.forEach(System.out::println);
+//        List<Category> categories =
+//                em.createQuery("SELECT c FROM Category c",Category.class).getResultList();
+//        categories.forEach(System.out::println);
+    Category category=em.createQuery("select c from Category c where c.id = ?1",Category.class).setParameter(1,2L).getSingleResult();
+        System.out.println(category);
+
 
         em.getTransaction().commit();
         em.close();
