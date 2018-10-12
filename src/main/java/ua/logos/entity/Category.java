@@ -1,9 +1,6 @@
 package ua.logos.entity;
 
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -12,6 +9,8 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @ToString(callSuper = true,exclude = "courses")
+@AllArgsConstructor
+@Builder
 
 @Entity
 @Table(name = "categories")
